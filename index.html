@@ -12,7 +12,6 @@
     <button onclick="generateCommand()">Generate Command</button>
     <p id="outputCommand"></p>
     <button id="copyButton" style="display: none;" onclick="copyCommand()">Copy Command</button>
-    <span id="copyConfirmation" style="display: none; color: green;">Command copied!</span>
 
     <script>
         function generateCommand() {
@@ -20,7 +19,6 @@
             var command = 'ffmpeg -i "' + link + '" -c copy output_file.mp4';
             document.getElementById("outputCommand").textContent = command;
             document.getElementById("copyButton").style.display = "block";
-            document.getElementById("copyConfirmation").style.display = "none";
         }
 
         function copyCommand() {
@@ -31,9 +29,9 @@
             window.getSelection().addRange(range);
             document.execCommand("copy");
             window.getSelection().removeAllRanges();
-            document.getElementById("copyConfirmation").style.display = "inline";
+            document.getElementById("copyButton").textContent = "Copied!";
             setTimeout(function() {
-                document.getElementById("copyConfirmation").style.display = "none";
+                document.getElementById("copyButton").textContent = "Copy Command";
             }, 1500);
         }
     </script>
