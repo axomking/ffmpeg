@@ -22,13 +22,8 @@
         }
 
         function copyCommand() {
-            var commandText = document.getElementById("outputCommand");
-            var range = document.createRange();
-            range.selectNode(commandText);
-            window.getSelection().removeAllRanges();
-            window.getSelection().addRange(range);
-            document.execCommand("copy");
-            window.getSelection().removeAllRanges();
+            var commandText = document.getElementById("outputCommand").textContent;
+            navigator.clipboard.writeText(commandText);
             document.getElementById("copyButton").textContent = "Copied!";
             setTimeout(function() {
                 document.getElementById("copyButton").textContent = "Copy Command";
