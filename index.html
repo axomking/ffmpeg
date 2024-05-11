@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FFmpeg Command Generator</title>
+</head>
+<body>
+    <h2>FFmpeg Command Generator</h2>
+    <label for="linkInput">Enter the link:</label>
+    <input type="text" id="linkInput">
+    <button onclick="generateCommand()">Generate Command</button>
+    <p id="outputCommand"></p>
+
+    <script>
+        function generateCommand() {
+            var link = document.getElementById("linkInput").value;
+            var command = 'ffmpeg -i "' + link + '" -c copy output_file.mp4';
+            document.getElementById("outputCommand").textContent = command;
+        }
+    </script>
+</body>
+</html>
