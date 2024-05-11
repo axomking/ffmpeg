@@ -11,12 +11,24 @@
     <input type="text" id="linkInput">
     <button onclick="generateCommand()">Generate Command</button>
     <p id="outputCommand"></p>
+    <button onclick="copyCommand()">Copy Command</button>
 
     <script>
         function generateCommand() {
             var link = document.getElementById("linkInput").value;
             var command = 'ffmpeg -i "' + link + '" -c copy output_file.mp4';
             document.getElementById("outputCommand").textContent = command;
+        }
+
+        function copyCommand() {
+            var commandText = document.getElementById("outputCommand");
+            var range = document.createRange();
+            range.selectNode(commandText);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            document.execCommand("copy");
+            window.getSelection().removeAllRanges();
+            alert("Command copied to clipboard!");
         }
     </script>
 </body>
