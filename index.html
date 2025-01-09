@@ -31,4 +31,27 @@
         }
     </script>
 </body>
+<body>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode()">Copy</button>
+<textarea id="code-box" class="code-box">
+const helloWorld = () => {
+console.log("Hello, World!");
+};
+helloWorld();
+</textarea>
+</div>
+
+<script>
+function copyCode() {
+const codeBox = document.getElementById("code-box");
+codeBox.select();
+navigator.clipboard.writeText(codeBox.value).then(() => {
+alert("Code copied to clipboard!");
+}).catch((err) => {
+console.error("Failed to copy: ", err);
+});
+}
+</script>
+</body>    
 </html>
