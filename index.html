@@ -31,24 +31,64 @@
         }
     </script>
 </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editable Code Box with Copy</title>
+  <style>
+    .code-container {
+      position: relative;
+      margin: 20px 0;
+    }
+    .code-box {
+      width: 100%;
+      min-height: 300px; /* Height badhayi gayi hai */
+      font-family: monospace;
+      font-size: 16px; /* Font size ko thoda bada kiya gaya hai */
+      background-color: #f4f4f4;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      resize: vertical; /* User ko height adjust karne ki permission */
+    }
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+    .copy-btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
 <body>
-<div class="code-container">
-<button class="copy-btn" onclick="copyCode()">Copy</button>
-<textarea id="code-box" class="code-box">
+  <div class="code-container">
+    <button class="copy-btn" onclick="copyCode()">Copy</button>
+    <textarea id="code-box" class="code-box">
 ffmpeg -i "http" -c:v copy -c:a aac -ar 44100 -filter:a "volume=0.8" -map 0:v -map 0:a -f flv "rtmp://a.rtmp.youtube.com/live2/wwh3-8j10-uy4d-d2x8-08gy"
-</textarea>
-</div>
 
-<script>
-function copyCode() {
-const codeBox = document.getElementById("code-box");
-codeBox.select();
-navigator.clipboard.writeText(codeBox.value).then(() => {
-alert("Code copied to clipboard!");
-}).catch((err) => {
-console.error("Failed to copy: ", err);
-});
-}
-</script>
-</body>    
+    </textarea>
+  </div>
+
+  <script>
+    function copyCode() {
+      const codeBox = document.getElementById("code-box");
+      codeBox.select();
+      navigator.clipboard.writeText(codeBox.value).then(() => {
+        alert("Code copied to clipboard!");
+      }).catch((err) => {
+        console.error("Failed to copy: ", err);
+      });
+    }
+  </script>
+</body>
+</html>
 </html>
