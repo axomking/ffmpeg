@@ -73,7 +73,7 @@
   <div class="code-container">
     <button class="copy-btn" onclick="copyCode()">Copy</button>
     <textarea id="code-box" class="code-box">
-ffmpeg -re -i "http://localhost/app/stream.m3u8" -c:v copy -c:a aac -b:a 128k -ar 44100 -filter:a "volume=0.8" -g 60 -b:v 2500k -maxrate 2500k -bufsize 5000k -fflags +discardcorrupt -probesize 50M -analyzeduration 100M -map 0:v -map 0:a -f flv "rtmp://a.rtmp.youtube.com/live2/wwh3-8j10-uy4d-d2x8-08gy"</textarea>
+ffmpeg -re -i "http://localhost/app/stream.m3u8" -c:v copy -c:a aac -b:a 128k -ar 44100 -filter:a "volume=0.8" -g 60 -b:v 2500k -maxrate 2500k -bufsize 5000k -fflags +discardcorrupt -probesize 50M -analyzeduration 100M -map 0:v -map 0:a -f flv "rtmp://a.rtmp.youtube.com/live2/7c8e-9v32-3b9k-yeky-17d6"</textarea>
   </div>
 
   <script>
