@@ -79,11 +79,7 @@ ffmpeg -re -i "http://localhost/app/stream.m3u8" -c:v copy -c:a aac -b:a 128k -a
   <div class="code-container">
     <button class="copy-btn" onclick="copyCode()">Copy</button>
     <textarea id="code-box" class="code-box">
-ffmpeg -re -i "input.mkv" -c:v libx264 -preset veryfast -crf 23 -g 60 -b:v 2500k -maxrate 2500k -bufsize 5000k ^
--c:a aac -b:a 128k -ar 44100 -ac 2 -filter:a "volume=0.8" ^
--fflags +discardcorrupt -probesize 50M -analyzeduration 100M ^
--map 0:v -map 0:a -f flv -rtmp_live live ^
-"rtmp://a.rtmp.youtube.com/live2/7c8e-9v32-3b9k-yeky-17d6"</textarea>
+ffmpeg -re -i "input.mkv" -c:v libx264 -preset veryfast -crf 23 -g 60 -b:v 2500k -maxrate 2500k -bufsize 5000k -c:a aac -b:a 128k -ar 44100 -ac 2 -filter:a "volume=0.8" -fflags +discardcorrupt -probesize 50M -analyzeduration 100M -map 0:v -map 0:a -f flv -rtmp_live live "rtmp://a.rtmp.youtube.com/live2/7c8e-9v32-3b9k-yeky-17d6"</textarea>
   </div>  
   <script>
     function copyCode() {
